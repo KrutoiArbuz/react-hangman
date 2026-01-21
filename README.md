@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# 🎯 Игра "Виселица" (Hangman)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<div align="center">
+  <img src="https://img.shields.io/badge/React-19.1.1-blue?style=for-the-badge&logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/TypeScript-5.8.3-blue?style=for-the-badge&logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Vite-7.1.7-646CFF?style=for-the-badge&logo=vite" alt="Vite" />
+  <img src="https://img.shields.io/badge/ESLint-9.36.0-4B32C3?style=for-the-badge&logo=eslint" alt="ESLint" />
+</div>
 
-Currently, two official plugins are available:
+## 📖 Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Игра "Виселица" (Hangman)
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Установка и запуск
 
-## Expanding the ESLint configuration
+### Предварительные требования
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js (версия 16 или выше)
+- npm или yarn
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Установка
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Клонируйте репозиторий:
+```bash
+git clone https://github.com/your-username/hangman-game.git
+cd hangman-game
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Установите зависимости:
+```bash
+npm install
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Запуск в режиме разработки
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
+```
+
+Откройте [http://localhost:5173](http://localhost:5173) в браузере.
+
+### Сборка для продакшена
+
+```bash
+npm run build
+```
+
+### Предварительный просмотр сборки
+
+```bash
+npm run preview
+```
+
+## 🛠 Технологии
+
+- **React 19**
+- **TypeScript**
+- **Vite**
+- **ESLint**
+## 📁 Структура проекта
+
+```
+hangman/
+├── src/
+│   ├── App.tsx              # Основной компонент приложения
+│   ├── HangmanDrawing.tsx   # Компонент рисования виселицы
+│   ├── HangmanWord.tsx      # Компонент отображения слова
+│   ├── Keyboard.tsx         # Виртуальная клавиатура
+│   ├── Keyboard.module.css  # Стили клавиатуры
+│   ├── main.tsx             # Точка входа приложения
+│   └── wordList.json        # Список слов для игры
+├── public/
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+## 🎨 Кастомизация
+
+### Добавление новых слов
+
+Отредактируйте файл `src/wordList.json`, добавив новые слова в массив:
+
+```json
+[
+  "слово1",
+  "слово2",
+  "слово3"
+]
 ```
